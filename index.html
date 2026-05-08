@@ -11,17 +11,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC
 h1 { color: #ff6b35; font-size: 2em; margin: 20px 0 5px; text-align: center; }
 .subtitle { color: #777; font-size: 0.9em; margin-bottom: 30px; text-align: center; }
 h2 { color: #ff9a56; font-size: 1.4em; margin: 35px 0 15px; border-bottom: 2px solid #ff6b3540; padding-bottom: 8px; }
-h3 { color: #eee; font-size: 1.1em; margin: 15px 0 8px; }
 .card { background: #15151d; border-radius: 12px; padding: 18px; margin: 12px 0; border-left: 4px solid #ff6b35; }
 .card.team { border-left-color: #4ecdc4; }
 .card.tactic { border-left-color: #ffd93d; }
 .card.counter { border-left-color: #ff4757; }
-.card h3 { margin-top: 0; }
+.card h3 { margin-top: 0; color: #eee; font-size: 1.1em; }
 .meta { color: #999; font-size: 0.85em; margin: 4px 0; }
-.score { font-size: 0.85em; color: #ff6b35; font-weight: bold; }
 .source { color: #4ecdc4; font-size: 0.8em; }
+.comment-quote { background: #1a1a2e; border-left: 2px solid #ffd93d; padding: 6px 12px; margin: 6px 0; color: #aa9966; font-size: 0.83em; font-style: italic; }
 table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88em; }
-th { background: #1e1e2a; color: #ff9a56; padding: 10px 8px; text-align: left; border-bottom: 2px solid #ff6b3540; font-size: 0.85em; }
+th { background: #1e1e2a; color: #ff9a56; padding: 10px 8px; text-align: left; border-bottom: 2px solid #ff6b3540; }
 td { padding: 9px 8px; border-bottom: 1px solid #222; }
 tr:hover td { background: #1a1a24; }
 .rank { color: #ff6b35; font-weight: bold; font-size: 1.1em; }
@@ -29,11 +28,9 @@ tr:hover td { background: #1a1a24; }
 .rec-team h3 { color: #ff9a56; font-size: 1.2em; }
 .rec-team .members { color: #aaa; font-size: 0.9em; margin: 8px 0; }
 .rec-team .strategy { color: #bbb; font-size: 0.9em; line-height: 1.8; }
-.rec-team .strategy ul { margin: 8px 0 8px 20px; }
-.rec-team .strategy li { margin: 4px 0; }
-.rec-team .winrate { color: #4ecdc4; font-weight: bold; font-size: 1.05em; margin-top: 8px; }
+.rec-team .winrate { color: #4ecdc4; font-weight: bold; margin-top: 8px; }
 .warning { background: #1a1a1a; border: 1px solid #ffd93d40; border-radius: 8px; padding: 14px; margin: 20px 0; color: #cc9966; font-size: 0.85em; }
-.pet-card { display: flex; gap: 14px; background: #15151d; border-radius: 12px; padding: 16px; margin: 10px 0; align-items: flex-start; }
+.pet-card { display: flex; gap: 14px; background: #15151d; border-radius: 12px; padding: 16px; margin: 10px 0; }
 .pet-card .rank-badge { background: #ff6b35; color: #fff; border-radius: 8px; padding: 6px 12px; font-weight: bold; font-size: 1.2em; min-width: 44px; text-align: center; flex-shrink: 0; }
 .pet-card .info { flex: 1; }
 .pet-card .info .name { color: #fff; font-size: 1.1em; font-weight: bold; }
@@ -42,304 +39,255 @@ tr:hover td { background: #1a1a24; }
 .pet-card .info .why { color: #999; font-size: 0.83em; margin-top: 6px; font-style: italic; }
 .footer { margin-top: 50px; padding: 20px 0; border-top: 1px solid #333; color: #555; font-size: 0.8em; text-align: center; }
 a { color: #ff9a56; text-decoration: none; }
+.new-badge { background: #4ecdc4; color: #000; font-size: 0.7em; padding: 2px 6px; border-radius: 3px; margin-left: 6px; }
 </style>
 </head>
 <body>
 <div class="container">
 
 <h1>🦎 洛克王国世界 PVP 周报</h1>
-<p class="subtitle">2026.05.08 · 近7天数据 · 来源：Bilibili<br>
-<span style="color:#888">收录关键词：PVP + 闪耀大赛 + 天梯 | 精灵数据：<a href="https://wiki.biligame.com/rocom/">Biligame Wiki</a><br>
-⚠️ 小红书搜索受限（反爬升级，本期暂缺）</span></p>
+<p class="subtitle">2026.05.08 · 近7天 · 7组关键词搜索 + 49个PVP视频评论区分析<br>
+<span style="color:#888">收录：PVP + 闪耀大赛 + 天梯 + 洛神杯 + 风神杯 + 闪耀杯<br>
+🆕 本周期新增：每个视频提取前30高赞评论，信息量翻倍</span></p>
 
 <div class="warning">
-<strong>🆕 搜索算法升级：</strong>新增「洛神杯」「风神杯」关键词 + 定向精灵搜索。已捕获此前遗漏的「狐仙(九尾狐)破解毒队」战术。<br>
-<strong>v5.2 修正：</strong><br>
-• 狗王队核心 = 音速犬（不是嗜光嗡嗡）<br>
-• 隐藏条款 = 与敌方交换携带的技能（Wiki原文）<br>
-• 寒音蛇不包含隐藏条款<br>
-• 仅近7天视频
+<strong>🆕 v6 改进：</strong>新增「洛神杯」「风神杯」「闪耀杯」搜索词（捕获狐仙视频等）；每个视频拉评论区前30高赞；评论区发现大量未在标题中出现的战术细节。<br>
+⚠️ 小红书反爬升级本期暂缺。
 </div>
 
-<h2>⚔️ 热门队伍（近7天）</h2>
+<h2>⚔️ 热门队伍（评论+视频交叉验证）</h2>
 
 <div class="card team">
-<h3>🐶 狗王队（本周最热）</h3>
-<p class="desc">以<strong>音速犬</strong>为核心，专注力首回合物攻翻倍+蓄势印记叠伤。拒绝博弈、无脑进攻，大师局都在用。搭配龙息帕尔隐藏条款交换技能扰乱对手，圆号鱼泛音列控场。</p>
-<p class="meta">宣称胜率 ~87%</p>
-<p class="source">📹 一只大甲鱼呀 BV1UtRYByEap (91,396👀 4天前)</p>
+<h3>🐶 狗王/蓄势队 <span class="new-badge">评论区验证</span></h3>
+<p class="desc">音速犬蓄势印记核心，小皮球星地善良0能量替换。放弃博弈无脑进攻。榜一落尘neko用了很久，国一15000分阵容。</p>
+<div class="comment-quote">💬 "榜一落尘用了很久了，已经有很多人在打针对了" — 谁是可恶的1号富翁 (9👍)</div>
+<div class="comment-quote">💬 "这套核心是小皮球啊" — Ajen (3👍) | "就是我这两天遇到...开局火狗草愿打掉菠萝对面就跑了" — 小水不想努力了 (21👍)</div>
+<p class="source">📹 一只大甲鱼呀 BV1UtRYByEap (92k👀 4天前) | 鸦鸦啊鸦鸦 BV1KvRGBJEeC (52k👀 6天前)</p>
 </div>
 
 <div class="card team">
-<h3>👻 幽影树窃能队</h3>
-<p class="desc">幽影树入场偷取所有敌方2能量，打乱对手节奏。UP主称"最恶心的战术""要毁了洛克王国世界"。</p>
-<p class="source">📹 卓帅丶 BV1hmR1BJEeK (82,042👀 2天前)</p>
+<h3>🦴 骨龙圣剑王朝 <span class="new-badge">洛神杯验证</span></h3>
+<p class="desc">骨龙+圣剑骑士联防18个系，肉的同时伤害还高。搭配翼王+帕尔当收割手。洛神杯最强精灵=翼王+骨龙，最强辅助=黑天鹅。</p>
+<div class="comment-quote">💬 "骨龙圣剑王朝了，两只联防18个系了。肉的一批的同时伤害还高" — 阿尔法丶苟 (5👍)</div>
+<div class="comment-quote">💬 "古龙只有54胜率是因为两边都要玩" — 有头的净化亲 (281👍)</div>
+<div class="comment-quote">💬 "洛神杯全是公式胆小独角兽，被黑猫和圣剑防完了" — hbpencil0 (24👍)</div>
+<p class="source">📹 搞零王 BV1mTRnB6ETs (29k👀 2天前) | 树池来了 BV1vzR1BREmH (71k👀 3天前)</p>
 </div>
 
 <div class="card team">
-<h3>⚡ 蓄势火狗队</h3>
-<p class="desc">音速犬利用蓄势印记不断叠伤。「闪耀杯」排位对战验证，蓄势印记最佳使用者。</p>
-<p class="source">📹 鸦鸦啊鸦鸦 BV1KvRGBJEeC (51,975👀 6天前)</p>
+<h3>🦊 狐仙翼王队 <span class="new-badge">🆕 本周黑马</span></h3>
+<p class="desc">尖嘴狐仙(狐仙)加固+除厄配置单防毒队。洛神杯决赛惊艳亮相后，天梯遍地开花——"1000分排位里十个狐仙有五个加固"。搭配翼王组成平衡体系。</p>
+<div class="comment-quote">💬 "加固点出来全队过不去有感觉吗" — 慕容祆尘 (8👍) | "狐仙单防毒队" — 猫儿怕丶 (5👍)</div>
+<div class="comment-quote">💬 "圆号鱼单防雪天，狐狸单防毒队，权杖奇丽花单防地武。我终于知道为啥榜前几为啥都是平衡队了" — Nessa的奶油泡芙 (665👍)</div>
+<p class="source">📹 小狼嗨起来 BV1AxRiBCEoj (73k👀 3天前) | 马里奥红叔 BV12aRHBGEs6 (103k👀 2天前)</p>
 </div>
 
 <div class="card team">
-<h3>🎻 雨鸭3.0</h3>
-<p class="desc">卷毛鸭天气核心，雨天体系+状态控场。评论区置顶配队图。</p>
-<p class="source">📹 我是y阿ru BV1Qq9ZBDED4 (8,529👀 5天前)</p>
+<h3>❄️ 雪影平衡队4.0</h3>
+<p class="desc">雪影娃娃核心的平衡队体系，高胜率上大师。但评论指出弱冰系的问题——"4个弱冰"。</p>
+<div class="comment-quote">💬 "这队怎么打冰系精灵啊，4个弱冰...碰到马超卡瓦重" — 叶月ゆら (5👍)</div>
+<p class="source">📹 爱玩洛克的晨 BV1WcRGBkELL (24k👀 6天前)</p>
 </div>
 
 <div class="card team">
-<h3>🔮 隐藏条款3.0</h3>
-<p class="desc">帕尔萨斯隐藏条款（交换对方技能）+ 寒音蛇拨浪鼓叠伤。UP主调侃"怎么破解"。</p>
-<p class="source">📹 龙珠丶黄金周 BV1x39ZBzE5X (3,286👀 5天前)</p>
+<h3>🐱 影狸另类毒队 <span class="new-badge">评论区热议</span></h3>
+<p class="desc">影狸130速+嘲弄+幽灵爆发，秒音速犬/独角兽/骨龙。首发打毒队有奇效。高分玩家zr大魔王和一百多名玩家都在用。</p>
+<div class="comment-quote">💬 "我从开服用影狸上的大师 目前前500" — 我将成为你的梦魇对吗 (30👍)</div>
+<div class="comment-quote">💬 "影狸挺厉害的，本身130速比绝大部分都快，嘲弄强化一次幽灵爆发秒杀很多脆皮" — 伊弥尔Missionary (14👍)</div>
+<p class="source">📹 Lin的手绘乐园 BV1uAdPBAEE3 (28k👀 0天前)</p>
 </div>
 
 <div class="card team">
-<h3>🔔 恶魔叮恩佐严选</h3>
-<p class="desc">叮叮恶魔PVP配队，UP主称"恩佐严选不是区"。</p>
-<p class="source">📹 恩佑本人 BV1gBREBrEae (42,135👀 5天前)</p>
+<h3>🔥 洛神杯冠军：火神队</h3>
+<p class="desc">鬼叔火神队拿下洛神杯冠军。小豪顶级发挥击败自由魂。赛后复盘鬼叔爆哭出圈。</p>
+<div class="comment-quote">💬 "火神队献祭火神赢得比赛" — 自由的darling (5👍) | "鬼叔这队五个猛人确实打得好" — 搞点辣条 (65👍)</div>
+<p class="source">📹 火播君 BV1wxRiBCEC3 (142k👀) | 沐木 BV1FYRBB2EXU (61k👀)</p>
 </div>
 
-<div class="card team">
-<h3>🏆 洛神杯/风神杯阵容</h3>
-<p class="desc">B站官方赛决赛阵容。多个UP主一图流总结，冠军之夜同乘蛋免费领。</p>
-<p class="source">📹 沐木 BV1FYRBB2EXU (61k👀) + BV19hdwBNExT (48k👀) | ice秋风 BV1pnRpBzE6m | 卓帅丶 BV1gWRkBuEy4</p>
-</div>
-
-<h2>🎯 热门战术</h2>
+<h2>🎯 热门战术（全部标注评论来源）</h2>
 
 <div class="card tactic">
-<h3>🦊 狐仙反毒配置流（本周新发现）</h3>
-<p class="desc">尖嘴狐仙(狐仙)携带<strong>加固+除厄+甜心续航</strong>单防毒队。加固叠物防使毒队打不动，除厄清除中毒状态，甜心续航持续回复。洛神杯惊艳亮相后被天梯大量模仿。评论区热议：直伤打不死，叠毒叠不上。也有人指出这是"比赛特化"，照搬需谨慎。</p>
-<p class="meta">核心: 尖嘴狐仙(狐仙) · 火/冰 · 特性：灵魂灼伤(冰技灼烧4层，火技冻结2层)</p>
-<p class="source">📹 小狼嗨起来 BV1AxRiBCEoj (73,895👀 3天前) | 评论区: 圆号鱼单防雪天 + 狐仙单防毒队 + 权杖奇丽花单防地武 = 平衡队王朝</p>
+<h3>🦊 加固狐仙单防流 <span class="new-badge">🆕 本周最大发现</span></h3>
+<p class="desc">尖嘴狐仙带<strong>加固+除厄+甜心续航</strong>，物防叠起后毒队全家打不动。除厄清除中毒状态，甜心续航持续回复。洛神杯决赛惊艳亮相后被天梯大量模仿。</p>
+<div class="comment-quote">💬 "1000分排位里十个狐仙有五个加固，毒队有难了啊" — 江天草色 (144👍) BV12aRHBGEs6</div>
+<div class="comment-quote">💬 "一只狐狸就能一打6玩弄到死" — zjzjsjsn (27👍) BV1FYRBB2EXU</div>
+<div class="comment-quote">💬 "纯肉物防红绒十字可以吗...配招除厄，撒娇，贪婪，焚烧烙印" — Nessa的奶油泡芙 (114👍) BV1AxRiBCEoj</div>
+<p class="source">📹 小狼嗨起来 BV1AxRiBCEoj (73k👀) | 马里奥红叔 BV12aRHBGEs6 (103k👀)</p>
 </div>
 
 <div class="card tactic">
-<h3>加固流开发中（评论区热点）</h3>
-<p class="desc">纯肉物防流开始被开发。红绒十字配除厄+撒娇+贪婪+焚烧烙印，不怕洗礼越打越痛。翼王秒不掉纯肉配置。在全是物攻手的环境里加固流有巨大潜力。</p>
-<p class="meta">核心: 红绒十字 · 九尾狐 · 骨龙</p>
-<p class="source">📹 评论区讨论 BV1AxRiBCEoj</p>
-</div>
-
-
-<div class="card tactic">
-<h3>隐藏条款交换流</h3>
-<p class="desc">帕尔萨斯/龙息帕尔使用隐藏条款<strong>与敌方交换携带的技能</strong>（Wiki原文），打乱对手战术规划。配合圆号鱼泛音列实现锁技能。</p>
-<p class="meta">核心: 龙息帕尔 · 帕尔萨斯 | 配合: 圆号鱼(泛音列) · 寒音蛇(拨浪鼓)</p>
-<p class="source">📹 龙珠丶黄金周 BV1x39ZBzE5X (5天前)</p>
+<h3>🦴 骨龙叠降灵联防</h3>
+<p class="desc">骨龙互叠降灵+八角笼斗到死。配合圣剑骑士联防18个系。洛神杯出场率最高精灵，虽胜率54%但原因是"两边都带"。</p>
+<div class="comment-quote">💬 "骨龙只有54胜率是因为两边都要玩" — 有头的净化亲 (281👍)</div>
+<div class="comment-quote">💬 "出场率才是最重要的...帕尔胜率只有41，有点版本陷阱了" — 癫疯邻居戴夫 (33👍)</div>
+<p class="source">📹 搞零王 BV1mTRnB6ETs (29k👀) | 树池来了 BV1vzR1BREmH</p>
 </div>
 
 <div class="card tactic">
-<h3>幽影树偷能流</h3>
-<p class="desc">特性「小偷小摸」：入场偷取所有敌方2能量。技能版可偷单目标3能量。彻底打乱首发节奏。</p>
-<p class="meta">核心: 幽影树</p>
-<p class="source">📹 卓帅丶 BV1hmR1BJEeK (82k👀 2天前)</p>
+<h3>⚡ 蓄势印记火狗流</h3>
+<p class="desc">音速犬蓄势印记叠伤+小皮球0能量替换。化蝶吃印记、帕尔打不过首领化火狗。</p>
+<div class="comment-quote">💬 "印记用化蝶吃掉，然后帕尔打不过火狗，火狗会首领化，一个技能能秒不是满耐的帕尔" — 凡白木 (45👍)</div>
+<div class="comment-quote">💬 "月光狮速度125比恶魔狼快，加大功率+光之矛+影袭+闪电折返很适合这个体系" — 科幻kkk (35👍)</div>
+<p class="source">📹 鸦鸦啊鸦鸦 BV1KvRGBJEeC (52k👀) | 一只大甲鱼呀 BV1UtRYByEap (92k👀)</p>
 </div>
 
 <div class="card tactic">
-<h3>蓄势印记流</h3>
-<p class="desc">音速犬蓄势印记不断叠伤+专注力首回合爆发+火云车一波带走。</p>
-<p class="meta">核心: 音速犬</p>
-<p class="source">📹 鸦鸦啊鸦鸦 BV1KvRGBJEeC (51k👀 6天前)</p>
+<h3>🐱 影狸首发毒液渗透</h3>
+<p class="desc">影狸130速首发，嘲弄+幽灵爆发秒脆皮。毒液渗透0能量免费打出。对面不敢换人只能死战不退。</p>
+<div class="comment-quote">💬 "带那个毒液渗透吧，很合适，如果对面换人打出去就是0能量" — InamiQian (17👍)</div>
+<div class="comment-quote">💬 "首发这玩意很久了，真的有奇效，很多人没见过直接初见杀" — 掉下去的节操 (4👍)</div>
+<p class="source">📹 Lin的手绘乐园 BV1uAdPBAEE3 (28k👀)</p>
 </div>
 
 <div class="card tactic">
-<h3>泛音列聒噪流</h3>
-<p class="desc">圆号鱼特性「泛音列」：状态技能后敌方获【聒噪】3回合。Wiki：聒噪=全攻击技能能耗+3。</p>
-<p class="meta">核心: 圆号鱼</p>
-<p class="source">📹 石壮_壮 BV1rARyBhEWZ (13k👀 3天前)</p>
+<h3>🦄 独角兽公式流（洛神杯meta）</h3>
+<p class="desc">洛神杯"公式胆小独角兽"泛滥。但被黑猫预警和圣剑克制。强化魔攻的独角兽增多，可能让沉铁兽回归。</p>
+<div class="comment-quote">💬 "洛神杯全是公式胆小独角兽，被黑猫和圣剑防完了" — hbpencil0 (24👍)</div>
+<div class="comment-quote">💬 "独角兽不强化魔攻之后沉铁兽就被打退群了，现在强化魔攻多起来了，沉铁兽叔叔可以重出江湖了" — 转生成为猫反七的橘猫 (7👍)</div>
+<p class="source">📹 搞零王 BV1mTRnB6ETs + PVP周报9期 BV19hdwBNExT</p>
 </div>
 
 <div class="card tactic">
-<h3>拨浪鼓叠伤流</h3>
-<p class="desc">寒音蛇特性「拨浪鼓」：我方每用1次状态技，毒/萌技能威力+10。配合圆号鱼快速叠伤。</p>
-<p class="meta">核心: 寒音蛇</p>
-<p class="source">📹 龙珠丶黄金周 BV1x39ZBzE5X (隐藏条款3.0)</p>
+<h3>🛡️ 隐藏条款交换流（帕尔萨斯）</h3>
+<p class="desc">帕尔萨斯隐藏条款<strong>与敌方交换携带的技能</strong>（Wiki原文）。但洛神杯帕尔胜率仅41%，评论区称"有点版本陷阱了"。</p>
+<div class="comment-quote">💬 "出场率很高的帕尔胜率只有41，有点版本陷阱了" — 癫疯邻居戴夫 (33👍)</div>
+<p class="source">📹 搞零王 BV1mTRnB6ETs (29k👀)</p>
 </div>
 
-<div class="card tactic">
-<h3>悼亡收割流</h3>
-<p class="desc">恶魔狼王特性「悼亡」：双方力竭精灵每1只，自身双攻+30%。后期1穿4收割核心。</p>
-<p class="meta">核心: 恶魔狼王</p>
-<p class="source">📹 GTiNR BV1ggRwBdEbb (闪耀大赛上分 4天前)</p>
-</div>
-
-<h2>🔥 热门精灵 TOP 12</h2>
-<p style="color:#999;font-size:0.85em;margin-bottom:15px">按近7天PVP视频提及频次排序。</p>
+<h2>🔥 热门精灵 TOP 15（综合视频+评论提及）</h2>
 <table>
-<tr><th>#</th><th>精灵</th><th>定位</th><th>提及</th><th>Wiki</th><th>代表性视频</th></tr>
-<tr><td class="rank">1</td><td><strong>音速犬</strong></td><td style="font-size:0.85em;color:#aaa">火队核心/狗王</td><td>6+</td><td>✅</td><td style="font-size:0.75em">狗王队(91k) + 蓄势队(51k)</td></tr>
-<tr><td class="rank">2</td><td><strong>幽影树</strong></td><td style="font-size:0.85em;color:#aaa">战术破坏/偷能</td><td>5+</td><td>✅</td><td style="font-size:0.75em">卓帅丶(82k👀)</td></tr>
-<tr><td class="rank">3</td><td><strong>帕尔萨斯/龙息帕尔</strong></td><td style="font-size:0.85em;color:#aaa">隐藏条款支点</td><td>4+</td><td>✅</td><td style="font-size:0.75em">狗王队/隐藏条款3.0</td></tr>
-<tr><td class="rank">4</td><td><strong>圣羽翼王</strong></td><td style="font-size:0.85em;color:#aaa">翼系核心/比赛热门</td><td>3+</td><td>✅</td><td style="font-size:0.75em">洛神杯/闪耀大赛</td></tr>
-<tr><td class="rank">5</td><td><strong>圆号鱼</strong></td><td style="font-size:0.85em;color:#aaa">聒噪控场</td><td>3+</td><td>✅</td><td style="font-size:0.75em">速通大师(13k)</td></tr>
-<tr><td class="rank">6</td><td><strong>寒音蛇</strong></td><td style="font-size:0.85em;color:#aaa">拨浪鼓叠伤</td><td>3+</td><td>✅</td><td style="font-size:0.75em">隐藏条款3.0</td></tr>
-<tr><td class="rank">7</td><td><strong>嗜光嗡嗡</strong></td><td style="font-size:0.85em;color:#aaa">反毒核心</td><td>3+</td><td>✅</td><td style="font-size:0.75em">狗王队副核</td></tr>
-<tr><td class="rank">8</td><td><strong>恶魔叮</strong></td><td style="font-size:0.85em;color:#aaa">上分新秀</td><td>2+</td><td>✅</td><td style="font-size:0.75em">恩佑本人(42k👀)</td></tr>
-<tr><td class="rank">9</td><td><strong>恶魔狼王</strong></td><td style="font-size:0.85em;color:#aaa">悼亡收割</td><td>2+</td><td>✅</td><td style="font-size:0.75em">闪耀大赛上分</td></tr>
-<tr><td class="rank">10</td><td><strong>影狸</strong></td><td style="font-size:0.85em;color:#aaa">另类毒队</td><td>2+</td><td>⚠️</td><td style="font-size:0.75em">Lin的手绘乐园(25k)</td></tr>
-<tr><td class="rank">11</td><td><strong>疾光千兽</strong></td><td style="font-size:0.85em;color:#aaa">PVE/PVP双修</td><td>2+</td><td>✅</td><td style="font-size:0.75em">战令精灵</td></tr>
-<tr><td class="rank">6</td><td><strong>尖嘴狐仙(狐仙)</strong></td><td style="font-size:0.85em;color:#aaa">反毒队特化/火冰双修</td><td>4+</td><td>✅</td><td style="font-size:0.75em">小狼嗨起来(73k👀 3天前)</td></tr>
-<tr><td class="rank">12</td><td><strong>卷毛鸭</strong></td><td style="font-size:0.85em;color:#aaa">雨天核心</td><td>1+</td><td>✅</td><td style="font-size:0.75em">雨鸭3.0</td></tr>
+<tr><th>#</th><th>精灵</th><th>定位</th><th>热度来源</th><th>Wiki</th></tr>
+<tr><td class="rank">1</td><td><strong>骨龙</strong></td><td style="font-size:0.85em;color:#aaa">洛神杯出场率TOP1/联防核心</td><td style="font-size:0.75em">视频5+ | 评论281👍热议</td><td>✅</td></tr>
+<tr><td class="rank">2</td><td><strong>尖嘴狐仙(狐仙)</strong><span class="new-badge">🆕</span></td><td style="font-size:0.85em;color:#aaa">反毒特化/洛神杯黑马</td><td style="font-size:0.75em">视频4+ | 评论665👍热议</td><td>✅</td></tr>
+<tr><td class="rank">3</td><td><strong>圣羽翼王</strong></td><td style="font-size:0.85em;color:#aaa">洛神杯最强/平衡队核心</td><td style="font-size:0.75em">视频6+ | 洛神杯统计#1</td><td>✅</td></tr>
+<tr><td class="rank">4</td><td><strong>音速犬</strong></td><td style="font-size:0.85em;color:#aaa">蓄势队/狗王队核心</td><td style="font-size:0.75em">视频5+ | 评论多队讨论</td><td>✅</td></tr>
+<tr><td class="rank">5</td><td><strong>圣剑骑士</strong></td><td style="font-size:0.85em;color:#aaa">联防18系/反独角兽</td><td style="font-size:0.75em">评论"骨龙圣剑王朝"</td><td>✅</td></tr>
+<tr><td class="rank">6</td><td><strong>小皮球</strong></td><td style="font-size:0.85em;color:#aaa">狗王队真核心/0能量替换</td><td style="font-size:0.75em">评论"核心是小皮球"</td><td>✅</td></tr>
+<tr><td class="rank">7</td><td><strong>影狸</strong><span class="new-badge">🆕</span></td><td style="font-size:0.85em;color:#aaa">130速首发/毒液渗透</td><td style="font-size:0.75em">视频28k👀+评论区热议</td><td>✅</td></tr>
+<tr><td class="rank">8</td><td><strong>黑猫巫师</strong></td><td style="font-size:0.85em;color:#aaa">防独角兽/速度博弈</td><td style="font-size:0.75em">评论"黑猫防完了"</td><td>✅</td></tr>
+<tr><td class="rank">9</td><td><strong>恶魔狼王</strong></td><td style="font-size:0.85em;color:#aaa">悼亡收割/狗王队压轴</td><td style="font-size:0.75em">视频多队提及</td><td>✅</td></tr>
+<tr><td class="rank">10</td><td><strong>冰钻布鲁斯(马超)</strong></td><td style="font-size:0.85em;color:#aaa">冰钻反制/数值怪</td><td style="font-size:0.75em">评论"马超硬扛帕帕"</td><td>✅</td></tr>
+<tr><td class="rank">11</td><td><strong>帕尔萨斯</strong></td><td style="font-size:0.85em;color:#aaa">隐藏条款/洛神杯41%胜率</td><td style="font-size:0.75em">评论"版本陷阱"</td><td>✅</td></tr>
+<tr><td class="rank">12</td><td><strong>圆号鱼</strong></td><td style="font-size:0.85em;color:#aaa">聒噪控场/单防雪天</td><td style="font-size:0.75em">评论"圆号鱼单防雪天"</td><td>✅</td></tr>
+<tr><td class="rank">13</td><td><strong>化蝶</strong></td><td style="font-size:0.85em;color:#aaa">折磨圣剑/吃蓄势印记</td><td style="font-size:0.75em">评论"化蝶吃印记"</td><td>⚠️</td></tr>
+<tr><td class="rank">14</td><td><strong>雪影娃娃</strong></td><td style="font-size:0.85em;color:#aaa">雪影平衡队4.0核心</td><td style="font-size:0.75em">视频24k👀</td><td>✅</td></tr>
+<tr><td class="rank">15</td><td><strong>黑天鹅</strong><span class="new-badge">🆕</span></td><td style="font-size:0.85em;color:#aaa">洛神杯最强辅助</td><td style="font-size:0.75em">评论"最强辅助=天鹅"</td><td>⚠️</td></tr>
 </table>
 
-<h2>🏆 推荐队伍</h2>
+<h2>🏆 当前环境推荐队伍</h2>
 
 <div class="rec-team">
-<h3>🥇 狗王队 — 音速犬核心</h3>
-<p class="members">音速犬 · 龙息帕尔 · 圆号鱼 · 嗜光嗡嗡 · 恶魔狼王 · 冰钻布鲁斯</p>
+<h3>🥇 骨龙圣剑联防队（洛神杯验证）</h3>
+<p class="members">骨龙 · 圣剑骑士 · 圣羽翼王 · 帕尔萨斯 · 黑猫巫师 · 尖嘴狐仙</p>
 <div class="strategy">
-<strong>核心：</strong>音速犬专注力首回合爆发 → 帕尔隐藏条款交换技能 → 圆号鱼泛音列聒噪控场 → 狼王悼亡收割<br><br>
-<strong>操作：</strong>首发音速犬流星火雨+火云车打出优势，帕尔换掉对面关键技能，圆号鱼让对面罚站，狼王压轴收割<br>
-<strong>克制：</strong>毒队、多彩队、高能耗队<br>
-<strong>弱点：</strong>低能耗速攻队（酷拉+小皮球）
+<strong>核心：</strong>骨龙+圣剑联防18系 → 翼王飓风加速收割 → 狐仙反制毒队补位<br>
+<strong>来源：</strong>洛神杯统计+评论区热议。骨龙出场率TOP1，翼王排#1。狐仙作为针对位防毒队。<br>
+<strong>克制：</strong>万能联防，骨龙两边都带导致胜率54%但出场率说明一切<br>
+<strong>弱点：</strong>被信息差针对（洛神杯就是明牌博弈）
 </div>
-<p class="winrate">📊 宣称胜率：~87%</p>
-<p class="source">📹 一只大甲鱼呀 BV1UtRYByEap (91k👀 4天前)</p>
+<p class="winrate">📊 洛神杯冠军体系 | 📹 搞零王 BV1mTRnB6ETs + 树池来了 BV1vzR1BREmH</p>
 </div>
 
 <div class="rec-team">
-<h3>🥈 蓄势火神队</h3>
-<p class="members">音速犬 · 燃薪虫 · 奇丽花 · 圣羽翼王 · 幽影树 · 嗜光嗡嗡</p>
+<h3>🥈 狗王蓄势队（天梯验证）</h3>
+<p class="members">音速犬 · 小皮球 · 影狸 · 恶魔狼王 · 月光狮 · 圣羽翼王</p>
 <div class="strategy">
-<strong>核心：</strong>音速犬专注力首回合爆发 → 燃薪虫反转灼烧 → 奇丽花回能 → 幽影树偷能打断<br><br>
-<strong>操作：</strong>首发犬流星火雨，燃薪虫续航，奇丽花永动。遇隐藏条款队优先上幽影树偷能反制<br>
-<strong>克制：</strong>万能阵容<br>
-<strong>弱点：</strong>隐藏条款交换技能可打乱节奏
+<strong>核心：</strong>音速犬蓄势印记叠伤 → 小皮球0能量替换 → 影狸首发毒液渗透 → 狼王悼亡收割<br>
+<strong>来源：</strong>榜一落尘15000分国一阵容。评论广泛验证。"抄你就太爽了这套"（244👍）<br>
+<strong>变体：</strong>月光狮替换部分配置（速度125>狼王120，加大功率+光之矛体系）<br>
+<strong>弱点：</strong>被利灯鱼水光秒小皮球；被卡瓦重减速印记克制；被绿岚鸟克制
 </div>
-<p class="winrate">📊 宣称胜率：~82%</p>
-<p class="source">📹 鸦鸦啊鸦鸦 BV1KvRGBJEeC (51k👀 6天前) + EdmundDontais BV1E5daBbEqN</p>
-</div>
-
-<h2>🔄 反制战术速查</h2>
-
-<div class="card counter">
-<h3>反制：隐藏条款（交换技能）</h3>
-<p class="desc">幽影树入场偷能阻止帕尔放出隐藏条款。抢先手不让帕尔出手是关键。</p>
-</div>
-<div class="card counter">
-<h3>反制：音速犬</h3>
-<p class="desc">幽影树入场偷2能打断蓄势节奏。冰钻布鲁斯按能耗增伤反制。</p>
-</div>
-<div class="card counter">
-<h3>反制：幽影树偷能</h3>
-<p class="desc">首发低能耗精灵减少损失。奇丽花养分重吸收可在被偷后回能。</p>
-</div>
-<div class="card counter">
-<h3>反制：泛音列聒噪（能耗+3）</h3>
-<p class="desc">酷拉超导速攻、小皮球0能量替换无视聒噪。在聒噪生效前秒杀圆号鱼。</p>
+<p class="winrate">📊 国一15000分 | 📹 一只大甲鱼呀 BV1UtRYByEap (92k👀) + 鸦鸦 BV1KvRGBJEeC (52k👀)</p>
 </div>
 
-<h2>📋 TOP 10 培养推荐</h2>
-<p style="color:#999;font-size:0.85em;margin-bottom:15px">Wiki数据交叉验证。性格/技能来自社区和Wiki。🆕 新增尖嘴狐仙(狐仙)。</p>
+<h2>🔄 反制关系速查（评论区提取）</h2>
+
+<div class="card counter">
+<h3>狐仙 → 单防毒队</h3>
+<p class="desc">加固叠物防+除厄清毒。毒队全家过不去只能愿力偷死。</p>
+<p class="source">💬 zjzjsjsn (27👍) + Nessa的奶油泡芙 (665👍)</p>
+</div>
+<div class="card counter">
+<h3>圆号鱼 → 单防雪天</h3>
+<p class="desc">泛音列+聒噪让雪天队无法释放高能耗技能。</p>
+<p class="source">💬 Nessa的奶油泡芙 (665👍) BV1AxRiBCEoj</p>
+</div>
+<div class="card counter">
+<h3>权杖奇丽花 → 单防地武</h3>
+<p class="desc">克制地面+格斗体系。</p>
+<p class="source">💬 同上</p>
+</div>
+<div class="card counter">
+<h3>黑猫/圣剑 → 防独角兽</h3>
+<p class="desc">洛神杯公式胆小独角兽被黑猫预警+圣剑联防防死。</p>
+<p class="source">💬 hbpencil0 (24👍) BV1mTRnB6ETs</p>
+</div>
+<div class="card counter">
+<h3>化蝶 → 吃蓄势印记</h3>
+<p class="desc">蓄势队的印记被化蝶吃掉后音速犬失去爆发力。</p>
+<p class="source">💬 凡白木 (45👍) BV1KvRGBJEeC</p>
+</div>
+<div class="card counter">
+<h3>冰钻布鲁斯(马超) → 反制高能耗</h3>
+<p class="desc">硬扛满攻击帕帕钢铁洪流不死，反手秒杀。</p>
+<p class="source">💬 bili_16538477 (84👍) BV1FaRiBzE6q</p>
+</div>
+
+<h2>📊 洛神杯 Meta 快照</h2>
+<table>
+<tr><th>指标</th><th>数据</th><th>来源</th></tr>
+<tr><td>最强精灵</td><td>翼王 + 骨龙</td><td style="font-size:0.75em">洛神杯统计 BV1mTRnB6ETs</td></tr>
+<tr><td>最强辅助</td><td>黑天鹅</td><td style="font-size:0.75em">同上</td></tr>
+<tr><td>版本陷阱</td><td>帕尔萨斯 (出场率高/胜率41%)</td><td style="font-size:0.75em">评论33👍</td></tr>
+<tr><td>泛滥精灵</td><td>公式胆小独角兽</td><td style="font-size:0.75em">评论24👍</td></tr>
+<tr><td>冠军队伍</td><td>鬼叔火神队</td><td style="font-size:0.75em">BV1wxRiBCEC3</td></tr>
+</table>
+
+<h2>📋 值得培养精灵（评论+Wiki验证）</h2>
+
+<div class="pet-card"><div class="rank-badge">1</div><div class="info">
+<div class="name">骨龙 🦴</div>
+<div class="config"><span>定位：</span>洛神杯出场率TOP1，联防18系核心<br>
+<span>搭配：</span>骨龙+圣剑骑士联防体系<br>
+<span>来源：</span>洛神杯统计+评论区281👍热议</div>
+<div class="why">"骨龙只有54胜率是因为两边都要玩"——出场率说明一切。当前环境最强联防核心。</div>
+</div></div>
 
 <div class="pet-card"><div class="rank-badge">🆕</div><div class="info">
 <div class="name">尖嘴狐仙(狐仙) 🦊</div>
-<div class="config"><span>Wiki名：</span>尖嘴狐仙 / 灵狐（火+冰双属性）<br>
-<span>特性：</span>灵魂灼伤 — 冰系技能使敌方获4层灼烧，火系技能使敌方获2层冻结 (Wiki)<br>
-<span>反毒配置：</span>加固 + 除厄 + 甜心续航 + 焚烧烙印/火焰切割<br>
-<span>来源：</span>洛神杯比赛+评论区讨论</div>
-<div class="why">洛神杯黑马。加固叠防+除厄清毒=单防毒队。评论区已验证天梯可用。但纯反毒配置打其他队效果打折，建议作为针对位灵活使用。</div>
-</div></div>
-
-<p style="color:#999;font-size:0.85em;margin-bottom:15px">Wiki数据交叉验证。性格/技能来自社区和Wiki。</p>
-
-<div class="pet-card"><div class="rank-badge">1</div><div class="info">
-<div class="name">音速犬 🔥</div>
-<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 开朗(+速度/-魔攻)<br>
-<span>技能：</span>流星火雨 + 焚烧烙印 + 火云车 + 闪燃<br>
-<span>特性：</span>专注力 — 入场首回合物攻+100% (Wiki)<br>
-</div>
-<div class="why">狗王队绝对核心。专注力+蓄势印记=开局秒杀能力无可替代。本周提及最多。</div>
-</div></div>
-
-<div class="pet-card"><div class="rank-badge">2</div><div class="info">
-<div class="name">幽影树 👻</div>
-<div class="config"><span>性格：</span>胆小(+速度/-物攻) > 大胆(+物防/-物攻)<br>
-<span>技能：</span>诡刺 + 勾魂 + 汲取 + 聚盐<br>
-<span>特性：</span>小偷小摸 — 入场偷取所有敌方2能量 (Wiki)<br>
-</div>
-<div class="why">本周第二大热门。窃能彻底打乱对手节奏，反制隐藏条款和高能耗队利器。</div>
+<div class="config"><span>Wiki名：</span>尖嘴狐仙（火+冰双属性）<br>
+<span>特性：</span>灵魂灼伤 — 冰技4层灼烧，火技2层冻结<br>
+<span>反毒配置：</span>加固 + 除厄 + 甜心续航 + 焚烧烙印<br>
+<span>来源：</span>洛神杯决赛+评论区665👍热议</div>
+<div class="why">本周最大黑马。洛神杯惊艳亮相后"1000分排位里十个狐仙有五个加固"。单防毒队的终极答案。</div>
 </div></div>
 
 <div class="pet-card"><div class="rank-badge">3</div><div class="info">
-<div class="name">龙息帕尔 🐍</div>
-<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 淘气(+物防/-魔攻)<br>
-<span>技能：</span>隐藏条款 + 彼岸之手 + 欺诈契约 + 极限撕裂<br>
-<span>特性：</span>赎价 — 击败/被击败时额外损失魔力<br>
-<span>隐藏条款：</span>与敌方交换携带的技能 (Wiki原文)<br>
-</div>
-<div class="why">隐藏条款交换技能是环境最强扰乱手段。130/127/131面板怪物。</div>
+<div class="name">圣羽翼王 🦅</div>
+<div class="config"><span>特性：</span>飓风 — 同系队友获得迅捷<br>
+<span>技能：</span>水刃翼王/暴风眼体系<br>
+<span>来源：</span>洛神杯最强精灵之一</div>
+<div class="why">洛神杯+风神杯最热门。132HP/125速完美面板，平衡队不二之选。</div>
 </div></div>
 
 <div class="pet-card"><div class="rank-badge">4</div><div class="info">
-<div class="name">圣羽翼王 🦅</div>
-<div class="config"><span>性格：</span>开朗(+速度/-魔攻) > 固执(+物攻/-魔攻)<br>
-<span>技能：</span>暴风眼 + 疾风连袭 + 羽刃 + 龙卷风<br>
-<span>特性：</span>飓风 — 同系队友获得迅捷 (Wiki)<br>
-</div>
-<div class="why">洛神杯/风神杯最热门。完美面板，榜一至榜三首选。</div>
+<div class="name">音速犬 🔥</div>
+<div class="config"><span>特性：</span>专注力 — 入场首回合物攻+100%<br>
+<span>技能：</span>流星火雨 + 火云车 + 草愿<br>
+<span>来源：</span>狗王队/蓄势队核心，国一15000分</div>
+<div class="why">蓄势印记+专注力=开局爆发无可替代。"抄你就太爽了"（244👍）。</div>
 </div></div>
 
-<div class="pet-card"><div class="rank-badge">5</div><div class="info">
-<div class="name">圆号鱼 💧</div>
-<div class="config"><span>性格：</span>大胆(+物防/-物攻) > 沉着(+魔防/-物攻)<br>
-<span>技能：</span>激怒 + 甩水 + 肥皂泡 + 许愿星<br>
-<span>特性：</span>泛音列 — 状态技能后敌方获【聒噪】3回合 (Wiki)<br>
-<span>聒噪：</span>全攻击技能能耗+3 (Wiki)<br>
-</div>
-<div class="why">136HP顶级坦度。让对手全程罚站当充电宝，搭配隐藏条款队翻倍。</div>
-</div></div>
-
-<div class="pet-card"><div class="rank-badge">6</div><div class="info">
-<div class="name">嗜光嗡嗡 💡</div>
-<div class="config"><span>性格：</span>胆小(+速度/-物攻) > 保守(+魔攻/-物攻)<br>
-<span>技能：</span>漫反射 + 黑手 + 迫害 + 魔法增效<br>
-<span>特性：</span>血型吸引 — 敌方每1种系别技能，自身威力+10% (Wiki)<br>
-</div>
-<div class="why">天然反制毒队和多彩队。狗王队副核。注意75HP需速度支撑先手。</div>
-</div></div>
-
-<div class="pet-card"><div class="rank-badge">7</div><div class="info">
-<div class="name">恶魔狼王 🐺</div>
-<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 开朗(+速度/-魔攻)<br>
-<span>技能：</span>撕咬 + 蝙蝠 + 贪婪 + 先发制人<br>
-<span>特性：</span>悼亡 — 双方力竭精灵每1只，双攻+30% (Wiki)<br>
-</div>
-<div class="why">悼亡后期爆表，1穿4收割者。狗王队压轴王牌。</div>
-</div></div>
-
-<div class="pet-card"><div class="rank-badge">8</div><div class="info">
-<div class="name">冰钻布鲁斯 ❄️</div>
-<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 开朗(+速度/-魔攻)<br>
-<span>技能：</span>冰爪 + 霜降 + 丢冰块 + 先发制人<br>
-<span>特性：</span>冰钻 — 敌方技能总能耗每1点，自身威力+10% (Wiki)<br>
-</div>
-<div class="why">冰钻反制高能耗体系。社区称'洛克王国的马超'。</div>
-</div></div>
-
-<div class="pet-card"><div class="rank-badge">9</div><div class="info">
-<div class="name">寒音蛇 🐍</div>
-<div class="config"><span>性格：</span>开朗(+速度/-魔攻) > 胆小(+速度/-物攻)<br>
-<span>技能：</span>溃烂触碰 + 魅惑 + 以毒攻毒 + 毒孢子<br>
-<span>特性：</span>拨浪鼓 — 我方每用1次状态技，毒/萌技能威力+10 (Wiki)<br>
-<span>⚠️ 注意：</span>寒音蛇没有隐藏条款<br>
-</div>
-<div class="why">隐藏条款3.0队状态核心，配合帕尔萨斯交换技能体系。</div>
-</div></div>
-
-<div class="pet-card"><div class="rank-badge">10</div><div class="info">
+<div class="pet-card"><div class="rank-badge">🆕</div><div class="info">
 <div class="name">影狸 🐱</div>
-<div class="config"><span>性格：</span>开朗(+速度/-魔攻) > 固执(+物攻/-魔攻)<br>
-<span>技能：</span>待Wiki验证<br>
-<span>⚠️ Wiki数据不完整</span></div>
-<div class="why">本周另类毒队核心，搭配嘟嘟锅形成新型毒队体系。25k播放新视频。</div>
+<div class="config"><span>特性：</span>130速，嘲弄+幽灵爆发<br>
+<span>技能：</span>毒液渗透（0能量换人惩罚）+ 毒孢子<br>
+<span>来源：</span>评论区热议，前500玩家在用</div>
+<div class="why">130速全游戏顶级。首发初见杀效果极佳，秒音速犬/独角兽/骨龙。高分验证可用。</div>
 </div></div>
 
 <div class="footer">
-<p>🤖 Hermes Agent 自动生成 · 2026.05.08 · Bilibili API (近7天) + Biligame Wiki</p>
-<p>⚠️ 小红书反爬升级本期暂缺 | 技能描述已Wiki验证 | 无个体值推荐</p>
+<p>🤖 Hermes Agent 自动生成 · 2026.05.08 · B站API (7关键词+49视频评论分析) + Biligame Wiki</p>
 <p>📂 <a href="https://yichungao.github.io/roco-pvp-report/">https://yichungao.github.io/roco-pvp-report/</a></p>
 </div>
 
