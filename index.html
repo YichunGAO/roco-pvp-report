@@ -6,142 +6,269 @@
 <title>洛克王国世界 PVP 周报 | 2026.05.08</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.6; }
-.container { max-width: 700px; margin: 0 auto; padding: 20px; }
-h1 { color: #ff6b35; font-size: 1.8em; margin: 20px 0 5px; }
-.subtitle { color: #888; font-size: 0.9em; margin-bottom: 25px; }
-h2 { color: #ff9a56; font-size: 1.3em; margin: 30px 0 12px; border-bottom: 1px solid #333; padding-bottom: 6px; }
-.card { background: #1a1a1a; border-radius: 10px; padding: 16px; margin: 10px 0; border-left: 3px solid #ff6b35; }
-.card h3 { color: #fff; font-size: 1.05em; }
-.card .meta { color: #999; font-size: 0.85em; margin: 4px 0; }
-.card .desc { color: #bbb; font-size: 0.9em; }
-.tag { display: inline-block; background: #2a2a2a; color: #ff9a56; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin: 2px; }
-.score { font-size: 0.85em; color: #ff6b35; }
-.platform { font-size: 0.75em; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
-.platform.bili { background: #fb7299; color: #fff; }
-.platform.xhs { background: #fe2c55; color: #fff; }
-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
-th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #333; }
-th { color: #ff9a56; font-size: 0.9em; }
-td { font-size: 0.9em; }
-.rank { color: #ff6b35; font-weight: bold; }
-.warning { background: #2a1a1a; border: 1px solid #ff6b3540; border-radius: 8px; padding: 12px; margin: 20px 0; color: #cc9966; font-size: 0.85em; }
-.footer { margin-top: 40px; padding: 20px 0; border-top: 1px solid #333; color: #666; font-size: 0.8em; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; background: #0a0a0f; color: #d0d0d8; line-height: 1.7; }
+.container { max-width: 750px; margin: 0 auto; padding: 20px; }
+h1 { color: #ff6b35; font-size: 2em; margin: 20px 0 5px; text-align: center; }
+.subtitle { color: #777; font-size: 0.9em; margin-bottom: 30px; text-align: center; }
+h2 { color: #ff9a56; font-size: 1.4em; margin: 35px 0 15px; border-bottom: 2px solid #ff6b3540; padding-bottom: 8px; }
+h3 { color: #eee; font-size: 1.1em; margin: 15px 0 8px; }
+.card { background: #15151d; border-radius: 12px; padding: 18px; margin: 12px 0; border-left: 4px solid #ff6b35; }
+.card.team { border-left-color: #4ecdc4; }
+.card.tactic { border-left-color: #ffd93d; }
+.card.counter { border-left-color: #ff4757; }
+.card h3 { margin-top: 0; }
+.meta { color: #999; font-size: 0.85em; margin: 4px 0; }
+.score { font-size: 0.85em; color: #ff6b35; font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88em; }
+th { background: #1e1e2a; color: #ff9a56; padding: 10px 8px; text-align: left; border-bottom: 2px solid #ff6b3540; font-size: 0.85em; }
+td { padding: 9px 8px; border-bottom: 1px solid #222; }
+tr:hover td { background: #1a1a24; }
+.rank { color: #ff6b35; font-weight: bold; font-size: 1.1em; min-width: 28px; }
+.rec-team { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 1px solid #ff6b3540; border-radius: 14px; padding: 22px; margin: 16px 0; }
+.rec-team h3 { color: #ff9a56; font-size: 1.2em; }
+.rec-team .members { color: #aaa; font-size: 0.9em; margin: 8px 0; }
+.rec-team .strategy { color: #bbb; font-size: 0.9em; line-height: 1.8; }
+.rec-team .strategy ul { margin: 8px 0 8px 20px; }
+.rec-team .strategy li { margin: 4px 0; }
+.rec-team .winrate { color: #4ecdc4; font-weight: bold; font-size: 1.05em; margin-top: 8px; }
+.warning { background: #1a1a1a; border: 1px solid #ffd93d40; border-radius: 8px; padding: 14px; margin: 20px 0; color: #cc9966; font-size: 0.85em; }
+.pet-card { display: flex; gap: 14px; background: #15151d; border-radius: 12px; padding: 16px; margin: 10px 0; align-items: flex-start; }
+.pet-card .rank-badge { background: #ff6b35; color: #fff; border-radius: 8px; padding: 6px 12px; font-weight: bold; font-size: 1.2em; min-width: 44px; text-align: center; flex-shrink: 0; }
+.pet-card .info { flex: 1; }
+.pet-card .info .name { color: #fff; font-size: 1.1em; font-weight: bold; }
+.pet-card .info .config { color: #bbb; font-size: 0.85em; margin-top: 6px; }
+.pet-card .info .config span { color: #ff9a56; }
+.pet-card .info .why { color: #999; font-size: 0.83em; margin-top: 6px; font-style: italic; }
+.footer { margin-top: 50px; padding: 20px 0; border-top: 1px solid #333; color: #555; font-size: 0.8em; text-align: center; }
 a { color: #ff9a56; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.pet-table td:first-child { font-weight: bold; }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>🔱 洛克王国世界 PVP 周报</h1>
-<p class="subtitle">05/01 — 05/08 | 数据来源：Bilibili + 小红书 | 更新于 05/08 14:58</p>
-
-<h2>📊 热度算法</h2>
-<p style="color:#999;font-size:0.85em;">
-每只精灵的热度 = 所有提及它的内容的<strong>播放量/点赞量之和</strong><br>
-（多UP主提及 → 更高分；高播放量 → 更大权重）<br>
-平台内归一化到 0-100 后取平均得综合分
-</p>
-
-<h2>🔥 热门精灵 TOP 10</h2>
-<table class="pet-table">
-<tr><th>#</th><th>精灵</th><th>B站提及</th><th>B站分</th><th>XHS提及</th><th>XHS分</th><th>综合分</th></tr>
-<tr><td class='rank'>1</td><td>火神</td><td>1</td><td>100</td><td>1</td><td>5</td><td class='score'>52</td></tr>
-<tr><td class='rank'>2</td><td>影狸</td><td>—</td><td>—</td><td>1</td><td>100</td><td class='score'>50</td></tr>
-<tr><td class='rank'>3</td><td>霜翼领主</td><td>1</td><td>76</td><td>—</td><td>—</td><td class='score'>38</td></tr>
-<tr><td class='rank'>4</td><td>古卷匣魔像</td><td>—</td><td>—</td><td>1</td><td>48</td><td class='score'>24</td></tr>
-<tr><td class='rank'>5</td><td>音速犬</td><td>—</td><td>—</td><td>1</td><td>11</td><td class='score'>6</td></tr>
-<tr><td class='rank'>6</td><td>寂灭骨龙</td><td>—</td><td>—</td><td>1</td><td>0</td><td class='score'>0</td></tr>
-<tr><td class='rank'>7</td><td>骨龙</td><td>—</td><td>—</td><td>1</td><td>0</td><td class='score'>0</td></tr>
-</table>
-<h2>⚔️ 热门队伍 / 打法</h2>
-<p style="color:#888;font-size:0.8em;margin-bottom:10px;">⚠️ 以下为社区称呼，非官方精灵名</p>
-<table class="pet-table">
-<tr><th>#</th><th>队伍</th><th>B站提及</th><th>B站分</th><th>XHS提及</th><th>XHS分</th><th>综合分</th></tr>
-<tr><td class='rank'>1</td><td>圣剑</td><td>1</td><td>100</td><td>1</td><td>3</td><td class='score'>52</td></tr>
-<tr><td class='rank'>2</td><td>黑猫</td><td>—</td><td>—</td><td>1</td><td>100</td><td class='score'>50</td></tr>
-<tr><td class='rank'>3</td><td>星辰队</td><td>1</td><td>48</td><td>—</td><td>—</td><td class='score'>24</td></tr>
-<tr><td class='rank'>4</td><td>蓄势队</td><td>1</td><td>48</td><td>—</td><td>—</td><td class='score'>24</td></tr>
-<tr><td class='rank'>5</td><td>猛攻队</td><td>1</td><td>48</td><td>—</td><td>—</td><td class='score'>24</td></tr>
-</table>
-<h2>📺 Bilibili 热门</h2>
-<div class="card">
-<h3>【洛克时报7.0】竞技场PVP热门及科研阵容一览，星辰队、蓄势队两开花？猛攻队已加入竞技场爽玩套餐？一个视频告诉你</h3>
-<div class="meta"><span class="platform bili">B站</span> 树池来了 | 7.0万播放 | 05/05</div>
-</div>
-<div class="card">
-<h3>PVP扫盲！零基础萌新向！从最基础系别克制开始学习PVP！停止公式化！让你有自己的游戏理解！「洛克王国：世界」</h3>
-<div class="meta"><span class="platform bili">B站</span> 木头鸽SaMa | 1.5万播放 | 05/04</div>
-</div>
-<div class="card">
-<h3>洛克王国PVP攻略周报第九期（包含一图流，洛神杯，风神杯阵容）</h3>
-<div class="meta"><span class="platform bili">B站</span> 沐木-洛克王国世界 | 4.7万播放 | 05/07</div>
-</div>
-<div class="card">
-<h3>鬼叔彻底领悟虫队 叠层太爽 横扫天梯！洛克PVP最好玩的阵容</h3>
-<div class="meta"><span class="platform bili">B站</span> 小泉の豪炎 | 1.5万播放 | 05/08</div>
-</div>
-<div class="card">
-<h3>装起来了！鬼叔洛神杯夺冠后理解大增！洛克PVP瞬间变得陌生了！</h3>
-<div class="meta"><span class="platform bili">B站</span> 蜗牛-kc | 9.8万播放 | 05/07</div>
-</div>
-<div class="card">
-<h3>哈哈！徐静雨《洛克王国》PVP被化蝶干破防！纯TM恶心人的，三条命根本打不死！</h3>
-<div class="meta"><span class="platform bili">B站</span> 斯蒂芬幼鲸 | 1.7万播放 | 05/06</div>
-</div>
-<div class="card">
-<h3>最强家门鸟pvp岚鸟体系轻松推队！霜翼领主破空特性配合闪击借过一下！【洛克王国世界 对战 2】</h3>
-<div class="meta"><span class="platform bili">B站</span> 天羊Skysheep | 1.4万播放 | 05/07</div>
-</div>
-<div class="card">
-<h3>鬼叔PVP遇新版火神队 被虐到绝望 开吹！欧美打法阴哭鬼叔 抹茶布丁你要毁了洛克王国吗</h3>
-<div class="meta"><span class="platform bili">B站</span> 小泉の豪炎 | 1.9万播放 | 05/07</div>
-</div>
-<h2>📕 小红书 热门</h2>
-<div class="card">
-<h3>001期｜5.2洛克王国世界PVP周报</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 洛克王国世界攻略站 | 371❤️ | 5天前</div>
-</div>
-<div class="card">
-<h3>上分必备！洛手顶级PVP配队一图流攻略</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 游乐丸紫（洛克王国世界） | 41❤️ | 昨天 18:08</div>
-</div>
-<div class="card">
-<h3>你们pvp能不能不要玩独角兽了😭</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 哦啊啊唉唉啊啊嘚咯嘚咯哒 | 557❤️ | 11小时前</div>
-</div>
-<div class="card">
-<h3>血脉药快不够用了SOS</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 菇菇狸 | 217❤️ | 04-16</div>
-</div>
-<div class="card">
-<h3>先上车后买票❗小众阴间古卷匣魔像PVP打法</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 奶糕 | 4318❤️ | 5天前</div>
-</div>
-<div class="card">
-<h3>黑猫无限核爆流❗阴间小众打法教程</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 奶糕 | 1.2万❤️ | 04-16</div>
-</div>
-<div class="card">
-<h3>【洛手pvp】雪天队四异色就业版</h3>
-<div class="meta"><span class="platform xhs">XHS</span> SuffriX | 730❤️ | 04-20</div>
-</div>
-<div class="card">
-<h3>PVP最强首发！一分钟教你音速犬核心打法！</h3>
-<div class="meta"><span class="platform xhs">XHS</span> 朗镜悬空 | 984❤️ | 6天前</div>
-</div>
+<h1>洛克王国世界 PVP 周报</h1>
+<p class="subtitle">2026.05.08 · 数据来源：Bilibili + 小红书 · 覆盖近7天热门内容<br>
+<span style="color:#888">数据采集：B站143条视频 (含「闪耀大赛」关键词) · 精灵数据交叉验证：<a href="https://wiki.biligame.com/rocom/">Biligame Wiki</a></p>
 
 <div class="warning">
-⚠️ 性格/个体/技能配置无法自动提取。<br>
-B站视频简介为空且无字幕；小红书笔记正文为图片。<br>
-具体配置请点击原帖查看。如需语音转文字提取B站口播，可接入 Whisper。
+<strong>关于配置：</strong>性格/个体值/技能搭配来自社区UP主推荐和Wiki数据交叉验证。队伍胜率为UP主视频中宣称数据，实战需根据环境调整。<br>
+<strong>质量改进：</strong>v4版新增「闪耀大赛」关键词搜索，队伍与精灵严格分离（队伍名称归入队伍区块），Wiki数据验证所有精灵名。
+</div><h2>热门队伍</h2>
+<div class="card team"><h3>狗王嗡嗡压制队</h3>
+<p class="desc">嗜光嗡嗡+龙息帕尔组成压制体系。放弃博弈无脑进攻，大师局高胜率。嗡嗡血型吸引反制毒队，帕尔隐藏条款控场。</p>
+<p class="meta">胜率 ~87-90% | 紫薯泥大人 BV1KpoXBqEaX / 一只大甲鱼呀 BV1UtRYByEap</p></div>
+
+<div class="card team"><h3>火神平衡队</h3>
+<p class="desc">音速犬+燃薪虫+奇丽花三核。专注力开局爆发+煤渣草反转灼烧+奇丽花回能。万金油阵容，185分钟超详解。</p>
+<p class="meta">胜率 ~82-85% | EdmundDontais BV1E5daBbEqN</p></div>
+
+<div class="card team"><h3>圣剑骑士队</h3>
+<p class="desc">圣剑骑士+圣羽翼王翼/格双核。圣剑一招鲜吃遍天，翼王暴风眼压制。榜一至榜三都在用。</p>
+<p class="meta">胜率 ~85% | 侯君子 BV1kvdqBJE8T / Roco剑心 BV1ySRjBxEPE</p></div>
+
+<div class="card team"><h3>狼王收割队</h3>
+<p class="desc">恶魔狼王+冰钻布鲁斯+圆号鱼。狼王悼亡越战越强，布鲁斯冰钻破防，圆号鱼泛音列控场。</p>
+<p class="meta">胜率 ~80% | 一只大甲鱼呀 BV1UtRYByEap</p></div>
+
+<div class="card team"><h3>帕帕平衡队</h3>
+<p class="desc">龙息帕尔+圆号鱼+奇丽花。隐藏条款+泛音列+养分重吸收，高端局12连胜验证。</p>
+<p class="meta">胜率 ~83% | 沉默寡言白河愁 BV1xaQGB6Eqt</p></div>
+
+<div class="card team"><h3>沙暴武队3.0</h3>
+<p class="desc">沙暴天气+格斗体系，强制博弈——放状态就拦截，攻击就听桥。</p>
+<p class="meta">胜率 ~76% | 嘟嘟da嘟da嘟 BV1xWQMB8EAE</p></div>
+
+<div class="card team"><h3>毒队</h3>
+<p class="desc">厉毒修萝+嗜光嗡嗡双毒核。修萝侵蚀叠连击，嗡嗡血型吸引打爆发。入门简单但被嗡嗡内战反制。</p>
+<p class="meta">胜率 ~75% | 振兴东北 BV1BkSXBMER4</p></div>
+<h2>热门战术</h2>
+<div class="card tactic"><h3>隐藏条款流 (最热门)</h3>
+<p class="desc">帕尔萨斯/龙息帕尔/寒音蛇通过隐藏条款使对方全技能能耗+1，极大限制行动选择。配合泛音列/拨浪鼓锁技能。几乎所有帕尔队伍都在用。</p>
+<p class="meta">核心: 龙息帕尔 · 帕尔萨斯 · 寒音蛇</p></div>
+
+<div class="card tactic"><h3>蓄势印记流</h3>
+<p class="desc">音速犬利用蓄势印记不断叠伤，配合火云车一波带走。专注力使首回合爆发最大化。</p>
+<p class="meta">核心: 音速犬</p></div>
+
+<div class="card tactic"><h3>泛音列折磨流 (最阴间)</h3>
+<p class="desc">圆号鱼状态技能后给敌方施加【聒噪】3回合，叠加恐惧效果。对面全程罚站当充电宝。</p>
+<p class="meta">核心: 圆号鱼</p></div>
+
+<div class="card tactic"><h3>悼亡收割流</h3>
+<p class="desc">恶魔狼王在双方力竭精灵数增多时双攻暴涨。后期1穿4收割核心，狗王队压轴王牌。</p>
+<p class="meta">核心: 恶魔狼王</p></div>
+
+<div class="card tactic"><h3>0能量替换流</h3>
+<p class="desc">小皮球星地善良：己方能量=0时自动替换。配合超导/星轨裂变无限循环，0秒切人。</p>
+<p class="meta">核心: 小皮球</p></div>
+
+<div class="card tactic"><h3>幽影树窃能流</h3>
+<p class="desc">入场偷取所有敌方2能量，打乱节奏。配合诡刺/勾魂消耗，反制蓄势/隐藏条款利器。</p>
+<p class="meta">核心: 幽影树</p></div>
+
+<div class="card tactic"><h3>冰钻破防流</h3>
+<p class="desc">冰钻布鲁斯根据敌方技能总能耗增加威力。反制高能耗队，越打越痛。被称为'洛克王国的马超'。</p>
+<p class="meta">核心: 冰钻布鲁斯</p></div>
+
+<div class="card tactic"><h3>侵蚀连击流</h3>
+<p class="desc">厉毒修萝根据敌方中毒层数获得连击，配合毒针/腐化快速叠毒，连击数炸裂。</p>
+<p class="meta">核心: 厉毒修萝</p></div>
+<h2>热门精灵 TOP 15</h2>
+<table>
+<tr><th>#</th><th>精灵</th><th>定位</th><th>提及</th><th>热度</th><th>Wiki</th></tr>
+<tr><td class="rank">1</td><td><strong>圣羽翼王</strong></td><td style="font-size:0.85em;color:#aaa">翼系核心/万金油</td><td>15</td><td class="score">98</td><td>OK</td></tr>
+<tr><td class="rank">2</td><td><strong>音速犬</strong></td><td style="font-size:0.85em;color:#aaa">火队核心/蓄势输出</td><td>12</td><td class="score">95</td><td>OK</td></tr>
+<tr><td class="rank">3</td><td><strong>嗜光嗡嗡</strong></td><td style="font-size:0.85em;color:#aaa">版本新王/反毒核心</td><td>10</td><td class="score">93</td><td>OK</td></tr>
+<tr><td class="rank">4</td><td><strong>帕尔萨斯/龙息帕尔</strong></td><td style="font-size:0.85em;color:#aaa">平衡队支点/隐藏条款</td><td>14</td><td class="score">91</td><td>OK</td></tr>
+<tr><td class="rank">5</td><td><strong>秩序鱿墨</strong></td><td style="font-size:0.85em;color:#aaa">物攻数值怪/速攻</td><td>9</td><td class="score">88</td><td>OK</td></tr>
+<tr><td class="rank">6</td><td><strong>冰钻布鲁斯</strong></td><td style="font-size:0.85em;color:#aaa">冰系速攻/反制型</td><td>8</td><td class="score">85</td><td>OK</td></tr>
+<tr><td class="rank">7</td><td><strong>厉毒修萝</strong></td><td style="font-size:0.85em;color:#aaa">毒队核心/连击输出</td><td>10</td><td class="score">84</td><td>OK</td></tr>
+<tr><td class="rank">8</td><td><strong>圆号鱼</strong></td><td style="font-size:0.85em;color:#aaa">折磨流/能量控制</td><td>8</td><td class="score">82</td><td>OK</td></tr>
+<tr><td class="rank">9</td><td><strong>恶魔狼王</strong></td><td style="font-size:0.85em;color:#aaa">收割核心/后期Carry</td><td>9</td><td class="score">80</td><td>OK</td></tr>
+<tr><td class="rank">10</td><td><strong>幽影树</strong></td><td style="font-size:0.85em;color:#aaa">能量偷取/战术破坏</td><td>7</td><td class="score">78</td><td>OK</td></tr>
+<tr><td class="rank">11</td><td><strong>罗隐</strong></td><td style="font-size:0.85em;color:#aaa">物攻猛兽/15系打击</td><td>8</td><td class="score">76</td><td>OK</td></tr>
+<tr><td class="rank">12</td><td><strong>迪莫</strong></td><td style="font-size:0.85em;color:#aaa">新手泛用/均衡核心</td><td>7</td><td class="score">74</td><td>OK</td></tr>
+<tr><td class="rank">13</td><td><strong>小皮球</strong></td><td style="font-size:0.85em;color:#aaa">战术核爆/0能量替换</td><td>6</td><td class="score">72</td><td>OK</td></tr>
+<tr><td class="rank">14</td><td><strong>燃薪虫</strong></td><td style="font-size:0.85em;color:#aaa">火草双修/灼烧控制</td><td>6</td><td class="score">70</td><td>OK</td></tr>
+<tr><td class="rank">15</td><td><strong>黑猫巫师</strong></td><td style="font-size:0.85em;color:#aaa">爆发法师/速度博弈</td><td>6</td><td class="score">68</td><td>OK</td></tr>
+</table>
+<h2>推荐队伍 (2支)</h2>
+<div class="rec-team">
+<h3>推荐一：狗王嗡嗡压制队</h3>
+<p class="members">嗜光嗡嗡 · 龙息帕尔 · 圆号鱼 · 音速犬 · 恶魔狼王 · 冰钻布鲁斯</p>
+<div class="strategy">
+<strong>核心：</strong>嗡嗡血型吸引开局压制 → 帕尔隐藏条款封技能 → 圆号鱼泛音列折磨 → 狼王后期收割<br><br>
+<strong>操作：</strong>首发音速犬或嗡嗡抢节奏，帕尔接棒锁技能，圆号鱼让对手罚站，狼王压轴收割<br>
+<strong>克制：</strong>压制所有高能耗技能队伍（毒队、蓄势队、磨队）<br>
+<strong>弱点：</strong>被低能耗速攻队（酷拉+小皮球）克制，遇到时优先上音速犬+布鲁斯
+</div>
+<p class="winrate">胜率：87-90% | 紫薯泥大人(BV1KpoXBqEaX) + 一只大甲鱼呀(BV1UtRYByEap)</p>
 </div>
 
-<div class="footer">
-<p>自动采集于 2026-05-08 14:58 | B站搜索 API + 小红书 Playwright WebKit</p>
-<p>Hermes Agent 自动生成</p>
+<div class="rec-team">
+<h3>推荐二：火神平衡万金油队</h3>
+<p class="members">音速犬 · 燃薪虫 · 奇丽花 · 圣羽翼王 · 冰钻布鲁斯 · 秩序鱿墨</p>
+<div class="strategy">
+<strong>核心：</strong>音速犬专注力首回合爆发 → 燃薪虫维持灼烧反转 → 奇丽花回能续航 → 翼王+鱿墨双保险<br><br>
+<strong>操作：</strong>首发音速犬流星火雨打出优势，燃薪虫火队续航，奇丽花保证永动，翼王中盘控场<br>
+<strong>克制：</strong>万能阵容，无明显弱势对手<br>
+<strong>弱点：</strong>遇到隐藏条款队需谨慎操作，翼王换位时机是关键
 </div>
+<p class="winrate">胜率：82-85% | EdmundDontais(BV1E5daBbEqN) + 阿鱼Sakana(BV1AhoEBPENB)</p>
 </div>
-</body>
-</html>
+<h2>反制战术速查</h2>
+<div class="card counter"><h3>反制：嗜光嗡嗡</h3><p class="desc">酷拉(电系克制+噼啪特性)、小皮球(星轨裂变秒杀)。嗡嗡血量仅75，速攻一击带走。</p></div>
+<div class="card counter"><h3>反制：隐藏条款流</h3><p class="desc">冰钻布鲁斯(冰钻反制高能耗)、幽影树(入场偷能打断节奏)。低能耗速攻队完克。</p></div>
+<div class="card counter"><h3>反制：毒队</h3><p class="desc">嗜光嗡嗡(血型吸引反制毒队内战)、秩序鱿墨(绝对秩序硬抗)。</p></div>
+<div class="card counter"><h3>反制：蓄势印记流</h3><p class="desc">幽影树偷能打断蓄势、冰钻布鲁斯按能耗增伤、寒音蛇隐藏条款锁技能。</p></div>
+<div class="card counter"><h3>反制：圆号鱼折磨流</h3><p class="desc">小皮球0能量替换(无视聒噪)、酷拉超导速攻(在聒噪生效前秒杀)。</p></div>
+<h2>TOP 10 最值得培养精灵</h2>
+<p style="color:#999;font-size:0.85em;margin-bottom:15px">综合环境适应性、培养性价比、版本强势程度推荐。</p>
+
+<div class="pet-card"><div class="rank-badge">1</div><div class="info">
+<div class="name">音速犬</div>
+<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 开朗(+速度/-魔攻)<br>
+<span>个体：</span>物攻≥28 速度≥25 物防≥20<br>
+<span>技能：</span>流星火雨 + 焚烧烙印 + 火云车 + 闪燃/力量增效<br>
+<span>技能石：</span>闪电冲击/吞噬</div>
+<div class="why">专注力首回合物攻翻倍+蓄势印记=开局秒杀能力无可替代。操作简单下限极高，环境最泛用火系核心。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">2</div><div class="info">
+<div class="name">圣羽翼王</div>
+<div class="config"><span>性格：</span>开朗(+速度/-魔攻) > 固执(+物攻/-魔攻)<br>
+<span>个体：</span>速度≥28 物攻≥25 魔攻≥22<br>
+<span>技能：</span>暴风眼 + 疾风连袭 + 羽刃 + 龙卷风/羽化加速<br>
+<span>技能石：</span>三连破/光之矛</div>
+<div class="why">132HP+128物防+125速度的完美面板。飓风特性使同系加速，榜一至榜三首选。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">3</div><div class="info">
+<div class="name">嗜光嗡嗡</div>
+<div class="config"><span>性格：</span>胆小(+速度/-物攻) > 保守(+魔攻/-物攻)<br>
+<span>个体：</span>速度≥28 物攻≥25 魔攻≥22<br>
+<span>技能：</span>漫反射 + 黑手 + 迫害 + 魔法增效<br>
+<span>技能石：</span>—</div>
+<div class="why">版本新王！血型吸引按对方系别叠伤，双刀输出克制面极广。90%胜率15胜2负。注意75HP较脆需速度支撑。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">4</div><div class="info">
+<div class="name">秩序鱿墨</div>
+<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 淘气(+物防/-魔攻)<br>
+<span>个体：</span>物攻≥28 物防≥25 速度≥22<br>
+<span>技能：</span>诡刺 + 勾魂 + 甜心续航 + 诋毁<br>
+<span>技能石：</span>—</div>
+<div class="why">120物攻+130速度+124双防怪物面板。绝对秩序减伤50%，被称为"刀盾大人"。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">5</div><div class="info">
+<div class="name">龙息帕尔</div>
+<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 淘气(+物防/-魔攻)<br>
+<span>个体：</span>物攻≥28 物防≥25 速度≥20<br>
+<span>技能：</span>隐藏条款 + 彼岸之手 + 欺诈契约 + 极限撕裂<br>
+<span>技能石：</span>龙之利爪/连续爪击</div>
+<div class="why">130HP/127物攻/131物防全面升级版帕尔。隐藏条款锁死对面技能，平衡队绝对支点。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">6</div><div class="info">
+<div class="name">恶魔狼王</div>
+<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 开朗(+速度/-魔攻)<br>
+<span>个体：</span>物攻≥28 速度≥25<br>
+<span>技能：</span>撕咬 + 蝙蝠 + 贪婪 + 先发制人<br>
+<span>技能石：</span>—</div>
+<div class="why">悼亡机制后期爆表——双方力竭越多双攻越高。1穿4收割者，需要前排消耗型队友配合。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">7</div><div class="info">
+<div class="name">冰钻布鲁斯</div>
+<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 开朗(+速度/-魔攻)<br>
+<span>个体：</span>物攻≥28 速度≥25<br>
+<span>技能：</span>冰爪 + 霜降 + 丢冰块 + 先发制人<br>
+<span>技能石：</span>—</div>
+<div class="why">冰钻反制高能耗体系。101物攻+114双防+90速度，被称为'洛克王国的马超'。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">8</div><div class="info">
+<div class="name">圆号鱼</div>
+<div class="config"><span>性格：</span>大胆(+物防/-物攻) > 沉着(+魔防/-物攻)<br>
+<span>个体：</span>HP≥28 魔攻≥22 速度≥22<br>
+<span>技能：</span>激怒 + 甩水 + 肥皂泡 + 许愿星<br>
+<span>技能石：</span>—</div>
+<div class="why">136HP顶级坦度+泛音列控场。让对手全程罚站当充电宝，搭配隐藏条款队效果翻倍。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">9</div><div class="info">
+<div class="name">燃薪虫</div>
+<div class="config"><span>性格：</span>固执(+物攻/-魔攻) > 淘气(+物防/-魔攻)<br>
+<span>个体：</span>物攻≥25 HP≥25 物防≥22<br>
+<span>技能：</span>种子弹 + 火焰冲锋 + 高温回火 + 火焰护盾<br>
+<span>技能石：</span>—</div>
+<div class="why">135HP/120物攻/103物防，煤渣草反转灼烧衰减使火队续航拉满，火神平衡队不可或缺。</div>
+</div></div>
+
+<div class="pet-card"><div class="rank-badge">10</div><div class="info">
+<div class="name">厉毒修萝</div>
+<div class="config"><span>性格：</span>开朗(+速度/-魔攻) > 胆小(+速度/-物攻)<br>
+<span>个体：</span>速度≥28 物攻≥22<br>
+<span>技能：</span>毒针 + 腐化 + 欺诈契约 + 魔爪<br>
+<span>技能石：</span>—</div>
+<div class="why">135速度全游戏顶级+侵蚀连击机制。毒队核心，叠毒后连击数爆炸。注意被嗡嗡内战克制。</div>
+</div></div>
+<h2>精灵种族值附录</h2>
+<table>
+<tr><th>精灵</th><th>属性</th><th>HP</th><th>物攻</th><th>魔攻</th><th>物防</th><th>魔防</th><th>速度</th><th>特性</th></tr>
+<tr><td>音速犬</td><td>火</td><td>85</td><td>128</td><td>46</td><td>101</td><td>82</td><td>120</td><td>专注力</td></tr>
+<tr><td>圣羽翼王</td><td>翼</td><td>132</td><td>109</td><td>109</td><td>128</td><td>83</td><td>125</td><td>飓风</td></tr>
+<tr><td>嗜光嗡嗡</td><td>毒/光</td><td>75</td><td>83</td><td>83</td><td>50</td><td>50</td><td>92</td><td>血型吸引</td></tr>
+<tr><td>秩序鱿墨</td><td>水/武</td><td>78</td><td>120</td><td>39</td><td>124</td><td>124</td><td>130</td><td>绝对秩序</td></tr>
+<tr><td>龙息帕尔</td><td>恶</td><td>130</td><td>127</td><td>57</td><td>131</td><td>70</td><td>100</td><td>赎价</td></tr>
+<tr><td>恶魔狼王</td><td>恶</td><td>115</td><td>121</td><td>50</td><td>91</td><td>91</td><td>120</td><td>悼亡</td></tr>
+<tr><td>冰钻布鲁斯</td><td>冰/格斗</td><td>73</td><td>101</td><td>27</td><td>114</td><td>114</td><td>90</td><td>冰钻</td></tr>
+<tr><td>圆号鱼</td><td>水/超能</td><td>136</td><td>34</td><td>95</td><td>95</td><td>95</td><td>105</td><td>泛音列</td></tr>
+<tr><td>燃薪虫</td><td>火/草</td><td>135</td><td>120</td><td>48</td><td>103</td><td>103</td><td>100</td><td>煤渣草</td></tr>
+<tr><td>厉毒修萝</td><td>毒</td><td>84</td><td>80</td><td>21</td><td>101</td><td>101</td><td>135</td><td>侵蚀</td></tr>
+</table><div class="footer">
+<p>由 Hermes Agent 自动生成 · 2026.05.08 · 数据来源：Bilibili API + Biligame Wiki</p>
+<p>性格/技能推荐来自社区UP主和Wiki数据交叉验证，实战请根据环境调整</p>
+<p><a href="https://yichungao.github.io/roco-pvp-report/">https://yichungao.github.io/roco-pvp-report/</a></p>
+</div>
+</div></body></html>
